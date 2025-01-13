@@ -1,0 +1,48 @@
+public class NullPointerException{
+
+    // Method to generate NullPointerException
+    public static void selfGeneratedNPE() {
+	
+		// The variable is Initialize to null
+        String text = null; 
+        
+		
+		// generating a NullPointerException
+        System.out.println(text.length());
+    }
+
+    // Method to handle NullPointerException
+    public static void handleNPE() {
+		// Initialize the variable to null
+        String text = null; 
+
+        try {
+            
+			// Trying to call a method on the null variable
+            System.out.println(text.length());
+        } catch (NullPointerException e) {
+            // Handling the exception and displaying the error message
+            System.out.println("A NullPointerException occurred: " + e.getMessage());
+        } catch (RuntimeException runtimeException) {
+            System.out.println("RuntimeException caught: An unexpected error occurred.");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("NullPointerException generating : ");
+
+        try {
+			
+			// Calling the method that generates the exception
+            selfGeneratedNPE();
+		}
+		
+		catch (NullPointerException e) {
+            System.out.println("Caught exception in selfGeneratedNPE : " + e.getMessage());
+        }
+
+        // Calling the method that handles the exception
+        System.out.println("\nNullPointerException handling :");
+        handleNPE();
+    }
+}
